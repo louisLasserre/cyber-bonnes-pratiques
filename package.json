@@ -1,16 +1,26 @@
 {
-  "name": "next-netlify-starter",
-  "version": "0.5.0",
+  "name": "@keystone-6/example-embedded-nextjs",
+  "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "export": "next export"
+    "start": "next start",
+    "build": "next build"
   },
   "dependencies": {
-    "cypress": "^10.0.3",
-    "next": "^12.1.5",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
-  }
+    "@apollo/client": "^3.7.3",
+    "@keystone-6/core": "^4.0.0",
+    "deepmerge": "^4.2.2",
+    "dotenv": "^16.0.0",
+    "graphql": "^16.6.0",
+    "lodash": "^4.17.21",
+    "next": "^13.0.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "typescript": "~4.9.4"
+  },
+  "repository": "https://github.com/keystonejs/keystone/tree/main/examples/embedded-nextjs"
 }

@@ -1,23 +1,31 @@
-import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+import React from "react";
+import Link from "next/link";
+// eslint-disable-next-line import/no-unresolved
+import { withContext } from "../with";
 
-export default function Home() {
+export default function HomePage({ quiz }) {
   return (
-    <div className="container">
-      <Head>
-        <title>Next.js Starter!</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <Header title="Welcome to my app!" />
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-      </main>
-
-      <Footer />
+    <div>
+      <h1>Welcome to my blog</h1>
+      <ul>
+        {quiz.map((data, i) => (
+          <li key={i}>
+            <Link href={`/post/${data.slug}`}>{data.title}</Link>
+          </li>
+        ))}
+      </ul>
     </div>
-  )
+  );
+}
+
+export async function getStaticProps() {
+  const context = await withContext();
+  const quiz = await context.query.Quizz.findMany({
+    query: "id title slug",
+  });
+  return {
+    props: {
+      quiz,
+    },
+  };
 }
